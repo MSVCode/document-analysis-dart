@@ -1,0 +1,12 @@
+name: document_analysis
+description: A collection of document-analysis processing.
+version: 0.1.0
+author: Vincent Utomo <msvcode@gmail.com>
+homepage: 
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+
+dev_dependencies:
