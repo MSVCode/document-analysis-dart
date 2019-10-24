@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 ///Cosine Similarity between two vectors

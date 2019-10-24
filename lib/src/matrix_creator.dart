@@ -8,7 +8,7 @@ import 'package:document_analysis/src/tokenizer.dart';
 List<List<double>> wordFrequencyMatrix(List<String> documentList) {
   TokenizationOutput tokenOut = documentTokenizer(documentList);
 
-  List<List<double>> matrix2d = List.generate(documentList.length, (_)=>[]);
+  List<List<double>> matrix2d = List.generate(documentList.length, (_) => []);
 
   //for all distinct words
   tokenOut.bagOfWords.forEach((key, val) {
@@ -30,7 +30,7 @@ List<List<double>> tfIdfMatrix(List<String> documentList,
     {measureFunction = cosineDistance}) {
   TokenizationOutput tokenOut = documentTokenizer(documentList);
 
-  List<List<double>> matrix2d = List.generate(documentList.length, (_)=>[]);
+  List<List<double>> matrix2d = List.generate(documentList.length, (_) => []);
   List<Map<String, double>> wpList = tfIdfProbability(tokenOut);
 
   //for all distinct words
@@ -53,7 +53,7 @@ List<List<double>> hybridTfIdfMatrix(List<String> documentList,
     {measureFunction = cosineDistance}) {
   TokenizationOutput tokenOut = documentTokenizer(documentList);
 
-  List<List<double>> matrix2d = List.generate(documentList.length, (_)=>[]);
+  List<List<double>> matrix2d = List.generate(documentList.length, (_) => []);
   Map<String, double> wordProbability = hybridTfIdfProbability(tokenOut);
 
   //for all distinct words

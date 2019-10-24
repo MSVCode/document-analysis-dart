@@ -1,3 +1,7 @@
+## [0.1.1+1]
+- Fix pub.dev health suggestion
+- Run `dartfmt`
+
 ## [0.1.1]
 - Updated example
 - Updated documentation

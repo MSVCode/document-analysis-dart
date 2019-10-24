@@ -1,4 +1,3 @@
-
 import 'package:document_analysis/src/structure.dart';
 
 ///Simple document tokenization.
@@ -43,10 +42,11 @@ TokenizationOutput documentTokenizer(List<String> documentList,
           } else {
             currentBOW[word] = 1;
             //found in this document for the first time
-            if (tokenOut.wordInDocumentOccurrence.containsKey(word))
+            if (tokenOut.wordInDocumentOccurrence.containsKey(word)) {
               tokenOut.wordInDocumentOccurrence[word]++;
-            else
+            } else {
               tokenOut.wordInDocumentOccurrence[word] = 1;
+            }
           }
         }
       }
