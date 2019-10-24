@@ -1,3 +1,6 @@
+## [0.1.2]
+- Added optional stopwords parameter in tokenizer
+
 ## [0.1.1+1]
 - Fix pub.dev health suggestion
 - Run `dartfmt`

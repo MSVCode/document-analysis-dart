@@ -6,7 +6,7 @@ import 'package:document_analysis/src/structure.dart';
 ///
 ///May use external stemmer if available.
 TokenizationOutput documentTokenizer(List<String> documentList,
-    {minLen = 1, String Function(String) stemmer}) {
+    {minLen = 1, String Function(String) stemmer, List<String> stopwords}) {
   TokenizationOutput tokenOut = TokenizationOutput();
 
   for (int k = 0; k < documentList.length; k++) {
@@ -24,8 +24,8 @@ TokenizationOutput documentTokenizer(List<String> documentList,
         String word = stemmer != null
             ? stemmer(words[j])
             : words[j]; //use stemmer if available
-        if (word.trim().isNotEmpty) {
-          //make sure
+        if (word.trim().isNotEmpty && (stopwords==null || !stopwords.contains(word))) {
+          //not empty and not a stopword
           contentWords.add(word);
 
           //general bag of words of whole input

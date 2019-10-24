@@ -6,7 +6,7 @@ In your Dart (or Flutter) project `pubspec.yaml` add the dependency:
 ```yaml
 dependencies:
   ...
-  document_analysis: ^0.1.1
+  document_analysis: ^0.1.2
 ```
 
 ## Vector Distance Measurement
@@ -66,10 +66,11 @@ print(wordFrequencyMatrix([doc1, doc2]));
 ## Document Tokenizer
 Tokenize document (String) into multiple metrics:
 
-Call: `documentTokenizer(List<String> documentList, {minLen = 1, String Function(String) stemmer})`
+Call: `documentTokenizer(List<String> documentList, {minLen = 1, String Function(String) stemmer, List<String> stopwords})`
 - `documentList`: All document in a List
 - `minLen`: Minimum word occurrence to be considered in tokenization
 - `stemmer`: Stemming function
+- `stopwords`: Collection of common words that should be ignored in document analysis
 
 Usage:
 ```dart
