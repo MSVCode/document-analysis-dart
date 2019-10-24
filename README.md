@@ -95,5 +95,9 @@ class TokenizationOutput{
 }
 ```
 
+### General Info
+Stemmer & Stopwords passable from document_similarity --> matrix_creator --> tokenizer.
+
+
 # Remarks
 - Hybrid TF-IDF based on `Sharifi, B., Hutton, M.-A. & Kalita, J. K., 2010. Experiments in microblog summarization. Social Computing (SocialCom), 2010 IEEE Second International Conference on, pp. 49-56.`

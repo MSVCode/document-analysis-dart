@@ -1,3 +1,6 @@
+## [0.1.3]
+- It's now possible to propagate stemmer and stopword params between functions
+
 ## [0.1.2]
 - Added optional stopwords parameter in tokenizer
 

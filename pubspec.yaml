@@ -1,6 +1,6 @@
 name: document_analysis
 description: A collection of document-analysis processing. Includes tokenization, distance, similarity, etc.
-version: 0.1.2
+version: 0.1.3
 author: Vincent Utomo <msvcode@gmail.com>
 homepage: https://github.com/MSVCode/document-analysis-dart
 repository: https://github.com/MSVCode/document-analysis-dart
