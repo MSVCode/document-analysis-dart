@@ -6,7 +6,7 @@ import 'package:document_analysis/src/tokenizer.dart';
 ///Create word-vector matrix using word-frequency metric
 ///
 List<List<double>> wordFrequencyMatrix(List<String> documentList,
-    {String Function(String) stemmer, List<String> stopwords}) {
+    {String Function(String)? stemmer, List<String>? stopwords}) {
   TokenizationOutput tokenOut =
       documentTokenizer(documentList, stemmer: stemmer, stopwords: stopwords);
 
@@ -16,7 +16,7 @@ List<List<double>> wordFrequencyMatrix(List<String> documentList,
   tokenOut.bagOfWords.forEach((key, val) {
     for (int i = 0; i < documentList.length; i++) {
       if (tokenOut.documentBOW[i].containsKey(key)) {
-        matrix2d[i].add(tokenOut.documentBOW[i][key].toDouble());
+        matrix2d[i].add(tokenOut.documentBOW[i][key]!.toDouble());
       } else {
         matrix2d[i].add(0);
       }
@@ -28,14 +28,14 @@ List<List<double>> wordFrequencyMatrix(List<String> documentList,
 
 ///Create word-vector matrix using TF-IDF metric
 ///
-List<List<double>> tfIdfMatrix(List<String> documentList,
+List<List<double?>> tfIdfMatrix(List<String> documentList,
     {measureFunction = cosineDistance,
-    String Function(String) stemmer,
-    List<String> stopwords}) {
+    String Function(String)? stemmer,
+    List<String>? stopwords}) {
   TokenizationOutput tokenOut =
       documentTokenizer(documentList, stemmer: stemmer, stopwords: stopwords);
 
-  List<List<double>> matrix2d = List.generate(documentList.length, (_) => []);
+  List<List<double?>> matrix2d = List.generate(documentList.length, (_) => []);
   List<Map<String, double>> wpList = tfIdfProbability(tokenOut);
 
   //for all distinct words
@@ -54,14 +54,14 @@ List<List<double>> tfIdfMatrix(List<String> documentList,
 
 ///Create word-vector matrix using Hybrid TF-IDF metric
 ///
-List<List<double>> hybridTfIdfMatrix(List<String> documentList,
+List<List<double?>> hybridTfIdfMatrix(List<String> documentList,
     {measureFunction = cosineDistance,
-    String Function(String) stemmer,
-    List<String> stopwords}) {
+    String Function(String)? stemmer,
+    List<String>? stopwords}) {
   TokenizationOutput tokenOut =
       documentTokenizer(documentList, stemmer: stemmer, stopwords: stopwords);
 
-  List<List<double>> matrix2d = List.generate(documentList.length, (_) => []);
+  List<List<double?>> matrix2d = List.generate(documentList.length, (_) => []);
   Map<String, double> wordProbability = hybridTfIdfProbability(tokenOut);
 
   //for all distinct words

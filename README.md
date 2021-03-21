@@ -6,7 +6,7 @@ In your Dart (or Flutter) project `pubspec.yaml` add the dependency:
 ```yaml
 dependencies:
   ...
-  document_analysis: ^0.1.2
+  document_analysis: ^[latest version]
 ```
 
 ## Vector Distance Measurement

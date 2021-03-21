@@ -6,8 +6,8 @@ import 'package:document_analysis/src/vector_measurement.dart';
 ///Default distanceFunction is cosineDistance
 double wordFrequencySimilarity(String document1, String document2,
     {distanceFunction = cosineDistance,
-    String Function(String) stemmer,
-    List<String> stopwords}) {
+    String Function(String)? stemmer,
+    List<String>? stopwords}) {
   List<List<double>> vectorList = wordFrequencyMatrix([document1, document2],
       stemmer: stemmer, stopwords: stopwords);
 
@@ -20,9 +20,9 @@ double wordFrequencySimilarity(String document1, String document2,
 double tfIdfSimilarity(
     String document1, String document2, List<String> background,
     {distanceFunction = cosineDistance,
-    String Function(String) stemmer,
-    List<String> stopwords}) {
-  List<List<double>> vectorList = tfIdfMatrix(
+    String Function(String)? stemmer,
+    List<String>? stopwords}) {
+  List<List<double?>> vectorList = tfIdfMatrix(
       [document1, document2, ...background],
       stemmer: stemmer, stopwords: stopwords);
 
@@ -35,9 +35,9 @@ double tfIdfSimilarity(
 double hybridTfIdfSimilarity(
     String document1, String document2, List<String> background,
     {distanceFunction = cosineDistance,
-    String Function(String) stemmer,
-    List<String> stopwords}) {
-  List<List<double>> vectorList = hybridTfIdfMatrix(
+    String Function(String)? stemmer,
+    List<String>? stopwords}) {
+  List<List<double?>> vectorList = hybridTfIdfMatrix(
       [document1, document2, ...background],
       stemmer: stemmer, stopwords: stopwords);
 

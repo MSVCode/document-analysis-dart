@@ -29,7 +29,7 @@ List<Map<String, double>> tfIdfProbability(TokenizationOutput tokenOut) {
   //calculate the IDF first, the value is used for all document
   Map<String, double> wordIDF = {};
   tokenOut.wordInDocumentOccurrence.forEach((key, val) {
-    wordIDF[key] = log(documentCount / tokenOut.wordInDocumentOccurrence[key]) /
+    wordIDF[key] = log(documentCount / tokenOut.wordInDocumentOccurrence[key]!) /
         ln10; //log10
   });
 
@@ -39,7 +39,7 @@ List<Map<String, double>> tfIdfProbability(TokenizationOutput tokenOut) {
     //for all word available in a document
     tokenOut.documentBOW[i].forEach((key, val) {
       var tf = val / tokenOut.documentTotalWord[i];
-      var idf = wordIDF[key];
+      var idf = wordIDF[key]!;
       currentWordProb[key] = tf * idf;
     });
     //every document have their own word probability
@@ -63,14 +63,14 @@ Map<String, double> hybridTfIdfProbability(TokenizationOutput tokenOut) {
   //calculate the IDF first, the value is used for all document
   Map<String, double> wordIDF = {};
   tokenOut.wordInDocumentOccurrence.forEach((key, val) {
-    wordIDF[key] = log(documentCount / tokenOut.wordInDocumentOccurrence[key]) /
+    wordIDF[key] = log(documentCount / tokenOut.wordInDocumentOccurrence[key]!) /
         ln10; //log10
   });
 
   //for all word
   tokenOut.bagOfWords.forEach((key, val) {
     var tf = val / tokenOut.totalNumberOfWords;
-    var idf = wordIDF[key];
+    var idf = wordIDF[key]!;
     wordsProbability[key] = tf * idf;
   });
 

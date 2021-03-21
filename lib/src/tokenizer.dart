@@ -6,7 +6,7 @@ import 'package:document_analysis/src/structure.dart';
 ///
 ///May use external stemmer if available.
 TokenizationOutput documentTokenizer(List<String> documentList,
-    {minLen = 1, String Function(String) stemmer, List<String> stopwords}) {
+    {minLen = 1, String Function(String)? stemmer, List<String>? stopwords}) {
   TokenizationOutput tokenOut = TokenizationOutput();
 
   for (int k = 0; k < documentList.length; k++) {
@@ -30,7 +30,7 @@ TokenizationOutput documentTokenizer(List<String> documentList,
 
           //general bag of words of whole input
           if (tokenOut.bagOfWords.containsKey(word)) {
-            tokenOut.bagOfWords[word]++; //current sentence bag of word
+            tokenOut.bagOfWords[word] = tokenOut.bagOfWords[word]!+1; //current sentence bag of word
           } else {
             tokenOut.bagOfWords[word] = 1;
             tokenOut.numberOfDistintWords++;
@@ -38,12 +38,12 @@ TokenizationOutput documentTokenizer(List<String> documentList,
 
           //document specific bag of words
           if (currentBOW.containsKey(word)) {
-            currentBOW[word]++; //current sentence bag of word
+            currentBOW[word] = currentBOW[word]!+1; //current sentence bag of word
           } else {
             currentBOW[word] = 1;
             //found in this document for the first time
             if (tokenOut.wordInDocumentOccurrence.containsKey(word)) {
-              tokenOut.wordInDocumentOccurrence[word]++;
+              tokenOut.wordInDocumentOccurrence[word] = tokenOut.wordInDocumentOccurrence[word]!+1;
             } else {
               tokenOut.wordInDocumentOccurrence[word] = 1;
             }
